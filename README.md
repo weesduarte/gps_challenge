@@ -6,9 +6,8 @@ No app foi utilizado a *API de localização do Google Maps*
 
 | **Preview**
 |-------------|
-|![ezgif com-gif-maker](
-https://user-images.githubusercontent.com/90530236/138139145-62675bc8-429a-4ed2-8eb1-b75480b6e54d.gif
-)
+|![previewapp](https://user-images.githubusercontent.com/90530236/138139145-62675bc8-429a-4ed2-8eb1-b75480b6e54d.gif)
+
 
 - :chart: Salvar Localizações
 - :chart: Editar 
