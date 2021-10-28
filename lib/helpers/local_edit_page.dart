@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:gps_challenge/helpers/home_page.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:gps_challenge/helpers/local_helper.dart';
@@ -59,11 +58,11 @@ class _LocalPageState extends State<LocalPage> {
               FocusScope.of(context).requestFocus(_addressFocus);
             }
           },
-          child: Icon(Icons.save),
+          child: const Icon(Icons.save),
           backgroundColor: const Color(0xFF2286c3),
         ),
         body: SingleChildScrollView(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
               GestureDetector(
@@ -75,7 +74,7 @@ class _LocalPageState extends State<LocalPage> {
                     image: DecorationImage(
                       image: _editedLocal.img != null
                           ? FileImage(File(_editedLocal.img))
-                          : AssetImage("images/null.jpg"),
+                          : const AssetImage("images/null.jpg"),
                     ),
                   ),
                 ),
@@ -90,7 +89,7 @@ class _LocalPageState extends State<LocalPage> {
               ),
               TextField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: "Nome"),
+                decoration: const InputDecoration(labelText: "Nome"),
                 onChanged: (text) {
                   _userEdited = true;
                   setState(() {
@@ -101,7 +100,7 @@ class _LocalPageState extends State<LocalPage> {
               TextField(
                 controller: _addressController,
                 focusNode: _addressFocus,
-                decoration: InputDecoration(labelText: "Endereço"),
+                decoration: const InputDecoration(labelText: "Endereço"),
                 onChanged: (text) {
                   _userEdited = true;
                   _editedLocal.address = text;
@@ -109,7 +108,7 @@ class _LocalPageState extends State<LocalPage> {
               ),
               TextField(
                 controller: _typeController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     labelText: "Tipo", prefixText: "Ex: casa, trabalho."),
                 onChanged: (text) {
                   _userEdited = true;
@@ -129,17 +128,17 @@ class _LocalPageState extends State<LocalPage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text("Descartar Alterações?"),
-              content: Text("Se sair as alterações serão perdidas."),
+              title: const Text("Descartar Alterações?"),
+              content: const Text("Se sair as alterações serão perdidas."),
               actions: [
                 FlatButton(
-                  child: Text("Cancelar"),
+                  child: const Text("Cancelar"),
                   onPressed: () {
                     Navigator.pop(context);
                   },
                 ),
                 FlatButton(
-                  child: Text("Sim"),
+                  child: const Text("Sim"),
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.pop(context);

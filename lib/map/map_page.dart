@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:gps_challenge/helpers/local_edit_page.dart';
 import 'package:gps_challenge/helpers/local_helper.dart';
-import 'package:gps_challenge/interface/after_start.dart';
 import 'dart:async';
 
 class MapPage extends StatefulWidget {
@@ -14,17 +13,17 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   LocalHelper helper = LocalHelper();
-  List<Local> locals = List();
-  Completer<GoogleMapController> _Mapcontroller = Completer();
+  List<Local> locals = [];
+  final Completer<GoogleMapController> _Mapcontroller = Completer();
   Set<Marker> markers = Set<Marker>();
 
   void _onMapCreated(GoogleMapController controller) {
     _Mapcontroller.complete(controller);
   }
 
-  static const LatLng _center = const LatLng(-7.1702109, -34.8617614);
+  static const LatLng _center = LatLng(-7.1702109, -34.8617614);
 
-  LatLng _lastMapPosition = _center;
+  final LatLng _lastMapPosition = _center;
 
   void _onAddMarkerButtonPressed() {
     setState(() {
@@ -32,7 +31,7 @@ class _MapPageState extends State<MapPage> {
         // This marker id can be anything that uniquely identifies each marker.
         markerId: MarkerId(_lastMapPosition.toString()),
         position: _lastMapPosition,
-        infoWindow: InfoWindow(
+        infoWindow: const InfoWindow(
           title: 'Title testing',
           snippet: 'engelset location',
         ),
@@ -80,7 +79,8 @@ class _MapPageState extends State<MapPage> {
         children: [
           GoogleMap(
             onMapCreated: _onMapCreated,
-            initialCameraPosition: CameraPosition(target: _center, zoom: 17.0),
+            initialCameraPosition:
+                const CameraPosition(target: _center, zoom: 17.0),
             markers: markers,
           ),
           Padding(

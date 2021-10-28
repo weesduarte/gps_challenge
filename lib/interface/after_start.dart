@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gps_challenge/helpers/home_page.dart';
-import 'package:gps_challenge/helpers/local_edit_page.dart';
 import 'package:gps_challenge/interface/home.dart';
 import 'package:gps_challenge/map/map_page.dart';
 
@@ -14,9 +13,9 @@ class AfterStart extends StatelessWidget {
         leading: IconButton(
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Home()));
+                context, MaterialPageRoute(builder: (context) => const Home()));
           },
-          icon: Icon(Icons.cottage),
+          icon: const Icon(Icons.cottage),
         ),
         backgroundColor: const Color(0xFF2286c3),
       ),
@@ -75,7 +74,7 @@ class AfterStart extends StatelessWidget {
                         style: TextStyle(color: Colors.black, fontSize: 20.0))),
               ),
             ),
-            Spacer(flex: 1),
+            const Spacer(flex: 1),
             const Text(
               "Desenvolved by: Weslley Duarte",
               style: TextStyle(color: Colors.black, fontSize: 16.0),
@@ -90,7 +89,7 @@ class AfterStart extends StatelessWidget {
 void _newLocal(BuildContext context) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => MapPage()),
+    MaterialPageRoute(builder: (context) => const MapPage()),
   );
 }
 

@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                           style:
                               TextStyle(color: Colors.black, fontSize: 20.0)))),
             ),
-            Spacer(),
+            const Spacer(),
             const Text(
               "Desenvolved by: Weslley Duarte",
               style: TextStyle(color: Colors.black, fontSize: 16.0),

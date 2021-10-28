@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:gps_challenge/interface/after_start.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:gps_challenge/helpers/local_helper.dart';
 import 'package:gps_challenge/helpers/local_edit_page.dart';
@@ -27,16 +26,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => AfterStart()),
+              MaterialPageRoute(builder: (context) => const AfterStart()),
             );
           },
         ),
         backgroundColor: const Color(0xFF2286c3),
-        title: Text("Locais"),
+        title: const Text("Locais"),
         centerTitle: true,
       ),
       backgroundColor: Colors.white,
@@ -44,11 +43,11 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           _showLocalPage();
         },
-        child: Icon(Icons.add),
-        backgroundColor: Color(0xFF2286c3),
+        child: const Icon(Icons.add),
+        backgroundColor: const Color(0xFF2286c3),
       ),
       body: ListView.builder(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           itemCount: locals.length,
           itemBuilder: (context, index) {
             return _localCard(context, index);
@@ -60,7 +59,7 @@ class _HomePageState extends State<HomePage> {
     return GestureDetector(
       child: Card(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
               Container(
@@ -71,26 +70,26 @@ class _HomePageState extends State<HomePage> {
                   image: DecorationImage(
                       image: locals[index].img != null
                           ? FileImage(File(locals[index].img))
-                          : AssetImage("images/null.jpg")),
+                          : const AssetImage("images/null.jpg")),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 10.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         locals[index].name ?? "",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 22.0, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         locals[index].address ?? "",
-                        style: TextStyle(fontSize: 18.0),
+                        style: const TextStyle(fontSize: 18.0),
                       ),
                       Text(
                         locals[index].type ?? "",
-                        style: TextStyle(fontSize: 18.0),
+                        style: const TextStyle(fontSize: 18.0),
                       ),
                     ]),
               )
@@ -130,25 +129,25 @@ class _HomePageState extends State<HomePage> {
           onClosing: () {},
           builder: (context) {
             return Container(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: FlatButton(
                         onPressed: () {
                           Navigator.pop(context);
                           _showLocalPage(local: locals[index]);
                         },
-                        child: Text(
+                        child: const Text(
                           "Editar",
                           style: TextStyle(
                               color: Color(0xFF2286c3), fontSize: 20.0),
                         )),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: FlatButton(
                         onPressed: () {
                           helper.deleteLocal(locals[index].id);
@@ -157,17 +156,17 @@ class _HomePageState extends State<HomePage> {
                             Navigator.pop(context);
                           });
                         },
-                        child: Text(
+                        child: const Text(
                           "Excluir",
                           style: TextStyle(
                               color: Color(0xFF2286c3), fontSize: 20.0),
                         )),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: FlatButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           "Planejar Rota",
                           style: TextStyle(
                               color: Color(0xFF2286c3), fontSize: 20.0),
