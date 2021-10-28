@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gps_challenge/helpers/home_page.dart';
 import 'package:gps_challenge/helpers/local_edit_page.dart';
+import 'package:gps_challenge/interface/home.dart';
 import 'package:gps_challenge/map/map_page.dart';
 
 class AfterStart extends StatelessWidget {
@@ -10,6 +11,13 @@ class AfterStart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Home()));
+          },
+          icon: Icon(Icons.cottage),
+        ),
         backgroundColor: const Color(0xFF2286c3),
       ),
       body: Container(

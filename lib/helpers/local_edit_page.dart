@@ -19,7 +19,7 @@ class _LocalPageState extends State<LocalPage> {
   final _nameController = TextEditingController();
   final _addressController = TextEditingController();
   final _typeController = TextEditingController();
-  final _nameFocus = FocusNode();
+  final _addressFocus = FocusNode();
 
   bool _userEdited = false;
 
@@ -52,10 +52,11 @@ class _LocalPageState extends State<LocalPage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            if (_editedLocal.name != null && _editedLocal.name.isNotEmpty) {
+            if (_editedLocal.address != null &&
+                _editedLocal.address.isNotEmpty) {
               Navigator.pop(context, _editedLocal);
             } else {
-              FocusScope.of(context).requestFocus(_nameFocus);
+              FocusScope.of(context).requestFocus(_addressFocus);
             }
           },
           child: Icon(Icons.save),
@@ -89,7 +90,6 @@ class _LocalPageState extends State<LocalPage> {
               ),
               TextField(
                 controller: _nameController,
-                focusNode: _nameFocus,
                 decoration: InputDecoration(labelText: "Nome"),
                 onChanged: (text) {
                   _userEdited = true;
@@ -100,6 +100,7 @@ class _LocalPageState extends State<LocalPage> {
               ),
               TextField(
                 controller: _addressController,
+                focusNode: _addressFocus,
                 decoration: InputDecoration(labelText: "Endereço"),
                 onChanged: (text) {
                   _userEdited = true;
